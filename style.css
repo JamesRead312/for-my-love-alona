@@ -82,14 +82,36 @@ p {
   position: fixed;
   top: 10px;
   right: 10px;
-  width: 70px;
+  width: 60px;
+  height: 60px;
   z-index: 10;
-  animation: floatImage 6s ease-in-out infinite;
   border-radius: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  object-fit: cover;
+  animation: floatImage 6s ease-in-out infinite, heartbeat 3s infinite ease-in-out, glowPulse 2s infinite alternate;
 }
 
 @keyframes floatImage {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.05); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+                0 0 30px rgba(255, 255, 255, 0.8),
+                0 0 40px rgba(255, 255, 255, 0.7);
+  }
 }
